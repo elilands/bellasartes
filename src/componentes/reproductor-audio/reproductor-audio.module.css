@@ -1,0 +1,64 @@
+.contenedor {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--color-superficie);
+  padding: 1rem;
+  border: 1px solid var(--color-linea);
+  margin: 0 var(--espacio-md) var(--espacio-md);
+}
+
+.botonPrincipal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--color-acento);
+  color: var(--color-superficie);
+  transition: background-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.botonPrincipal:hover {
+  background-color: var(--color-acento-hover);
+}
+
+.iconoPlay {
+  margin-left: 3px; /* Compensación óptica para el triángulo del play */
+}
+
+.info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.etiqueta {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-texto-secundario);
+  font-weight: 500;
+}
+
+.barraProgresoFondo {
+  height: 2px;
+  width: 100%;
+  background-color: var(--color-linea);
+  position: relative;
+}
+
+.barraProgresoLlena {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: var(--color-acento);
+  transition: width 0.1s linear;
+}

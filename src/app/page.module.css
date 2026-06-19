@@ -1,0 +1,30 @@
+.contenedor {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--espacio-md);
+  text-align: center;
+}
+
+.contenido {
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espacio-sm);
+}
+
+.icono {
+  color: var(--color-acento);
+  margin-bottom: var(--espacio-xs);
+}
+
+.titulo {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+}
+
+.texto {
+  color: var(--color-texto-secundario);
+  font-size: 1rem;
+}
