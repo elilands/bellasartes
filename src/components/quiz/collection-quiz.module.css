@@ -1,0 +1,264 @@
+/* src/components/quiz/collection-quiz.module.css */
+.quizContainer {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.quizHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.progressText {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.progressBar {
+  width: 100%;
+  height: 2px;
+  background-color: var(--border-subtle);
+  position: relative;
+}
+
+.progressFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: var(--accent-gold);
+}
+
+.questionBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.questionText {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  line-height: 1.4;
+  color: var(--text-primary);
+}
+
+.optionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.optionButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1.5rem 2rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  color: var(--text-primary);
+}
+
+.optionButton:hover:not(:disabled) {
+  border-color: var(--accent-gold);
+  background-color: var(--bg-base);
+  transform: translateX(5px);
+}
+
+.optionButton:disabled {
+  cursor: default;
+}
+
+.correct {
+  border-color: #2B593F;
+  background-color: rgba(43, 89, 63, 0.05);
+  color: #2B593F;
+  font-weight: 500;
+}
+
+.incorrect {
+  border-color: var(--accent-red);
+  background-color: rgba(123, 22, 27, 0.03);
+  opacity: 0.8;
+}
+
+.dimmed {
+  opacity: 0.4;
+}
+
+.statusIcon {
+  flex-shrink: 0;
+  margin-left: 1rem;
+}
+
+.feedbackSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  overflow: hidden;
+}
+
+.justificationBox {
+  padding: 2rem;
+  border-left: 2px solid;
+  background-color: var(--bg-surface);
+}
+
+.justificationBox[data-correct="true"] {
+  border-color: #2B593F;
+}
+
+.justificationBox[data-correct="false"] {
+  border-color: var(--accent-red);
+}
+
+.feedbackTitle {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.justificationText {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.nextButton {
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background-color: var(--text-primary);
+  color: white;
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  border-radius: 2px;
+}
+
+.nextButton:hover {
+  background-color: var(--accent-gold);
+  transform: translateX(5px);
+}
+
+/* Pantalla de resultados */
+.resultContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+}
+
+.resultCard {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 500px;
+}
+
+.scoreCircle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  border: 2px solid;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.scoreCircle[data-passed="true"] {
+  border-color: var(--accent-gold);
+  background-color: rgba(182, 154, 84, 0.1);
+}
+
+.scoreCircle[data-passed="false"] {
+  border-color: var(--border-subtle);
+}
+
+.resultTitle {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  color: var(--text-primary);
+}
+
+.resultMessage {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.resultActions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.acceptButton {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background-color: var(--accent-red);
+  color: white;
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.acceptButton:hover {
+  background-color: #631216;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(123, 22, 27, 0.15);
+}
+
+.retryButton {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.retryButton:hover {
+  border-color: var(--text-primary);
+  background-color: var(--bg-surface);
+}

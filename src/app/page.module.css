@@ -1,30 +1,284 @@
-.contenedor {
-  min-height: 100dvh;
+.landingContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--espacio-md);
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.header {
   text-align: center;
 }
 
-.contenido {
-  max-width: 400px;
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  color: var(--accent-red);
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-secondary);
+}
+
+/* Profile Editor */
+.profileSection {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--espacio-sm);
+  gap: 2rem;
+  background-color: var(--bg-surface);
+  padding: 3rem 2rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
 }
 
-.icono {
-  color: var(--color-acento);
-  margin-bottom: var(--espacio-xs);
+.photoUploader {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 2px dashed var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: var(--bg-base);
+  transition: border-color 0.3s ease;
 }
 
-.titulo {
-  font-size: clamp(2rem, 4vw, 2.5rem);
+.photoUploader:hover {
+  border-color: var(--accent-gold);
 }
 
-.texto {
-  color: var(--color-texto-secundario);
-  font-size: 1rem;
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.uploadPlaceholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+}
+
+.uploadText {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.hiddenInput {
+  display: none;
+}
+
+.nameInputContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 300px;
+}
+
+.nameLabel {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+}
+
+.nameInput {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-bottom: 2px solid var(--border-subtle);
+  background: transparent;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  text-align: center;
+  color: var(--text-primary);
+  transition: border-color 0.3s ease;
+}
+
+.nameInput:focus {
+  outline: none;
+  border-bottom-color: var(--accent-gold);
+}
+
+.nameInput::placeholder {
+  color: #ccc;
+}
+
+/* Stamps Grid */
+.stampsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.sectionTitle {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.stampsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.stampCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  border: 1px solid var(--border-subtle);
+  background-color: var(--bg-surface);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stampCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.stampImageWrapper {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stampImage {
+  object-fit: contain;
+  transition: all 0.5s ease;
+}
+
+.stampLocked {
+  filter: grayscale(100%) opacity(0.2) drop-shadow(0 0 0 rgba(0,0,0,1));
+}
+
+.stampUnlocked {
+  filter: grayscale(0%) opacity(1);
+}
+
+.stampName {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+}
+
+/* Download Action */
+.downloadSection {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.downloadButton {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2.5rem;
+  background-color: var(--text-primary);
+  color: white;
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.downloadButton:hover:not(:disabled) {
+  background-color: var(--accent-gold);
+}
+
+.downloadButton:disabled {
+  background-color: var(--border-subtle);
+  color: var(--text-secondary);
+  cursor: not-allowed;
+}
+
+/* Modal Hint */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 1rem;
+}
+
+.modalContent {
+  background-color: var(--bg-base);
+  padding: 3rem;
+  max-width: 400px;
+  width: 100%;
+  border: 1px solid var(--accent-gold);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.modalTitle {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  color: var(--accent-red);
+}
+
+.modalText {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.modalClose {
+  padding: 0.75rem 1.5rem;
+  background-color: transparent;
+  border: 1px solid var(--text-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.modalClose:hover {
+  background-color: var(--text-primary);
+  color: white;
 }

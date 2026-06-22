@@ -1,19 +1,18 @@
-:root {
-  /* paleta cromática inspirada en la materialidad del palacio */
-  --color-fondo: #F9F8F5; /* mármol travertino cálido */
-  --color-superficie: #FFFFFF;
-  --color-superficie-elevada: #F2EFE9;
-  --color-texto-principal: #1C1A17; /* hierro forjado */
-  --color-texto-secundario: #5C5852; /* gris piedra */
-  --color-acento: #A67C52; /* bronce/latón */
-  --color-acento-hover: #8C6641;
-  --color-linea: #E6E2D8;
+/* src/app/globals.css */
 
-  /* sistema tipográfico fluido */
-  --espacio-xs: clamp(0.5rem, 1vw, 0.75rem);
-  --espacio-sm: clamp(1rem, 2vw, 1.5rem);
-  --espacio-md: clamp(2rem, 4vw, 3rem);
-  --espacio-lg: clamp(4rem, 6vw, 6rem);
+:root {
+  /* Official Bellas Artes Palette */
+  --bg-base: #FFFFFF;      
+  --bg-surface: #FAFAFA;   /* Gris extremadamente sutil para enmarcar obras si es necesario */
+  --text-primary: #111111;  
+  --text-secondary: #555555;
+  --accent-red: #7B161B;   /* Rojo institucional profundo */
+  --accent-gold: #B69A54;  
+  --border-subtle: #EBEBEB;
+  
+  /* Typography */
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Inter', sans-serif;
 }
 
 * {
@@ -23,30 +22,14 @@
 }
 
 body {
-  background-color: var(--color-fondo);
-  color: var(--color-texto-principal);
-  font-family: var(--font-sans), system-ui, sans-serif;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  line-height: 1.6;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-serif), serif;
-  font-weight: 400;
-  line-height: 1.1;
-  color: var(--color-texto-principal);
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font: inherit;
+  font-family: var(--font-serif);
+  font-weight: 400; /* Reducimos el peso para mayor elegancia editorial */
 }

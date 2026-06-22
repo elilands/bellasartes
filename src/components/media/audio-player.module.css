@@ -1,0 +1,84 @@
+/* src/components/media/audio-player.module.css */
+
+.playerContainer {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.playButton {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--bg-surface);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--accent-red);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  outline: none;
+}
+
+.playButton:hover {
+  transform: scale(1.05);
+  background-color: var(--bg-base);
+  box-shadow: 0 10px 25px rgba(123, 22, 27, 0.1);
+}
+
+.playButton:focus-visible {
+  box-shadow: 0 0 0 2px var(--bg-base), 0 0 0 4px var(--accent-red);
+}
+
+.progressRing {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(-90deg); /* Inicia a las 12 en punto */
+  pointer-events: none;
+}
+
+.ringTrack {
+  stroke: var(--border-subtle);
+}
+
+.ringIndicator {
+  stroke: var(--accent-red);
+  transition: stroke-dashoffset 0.1s linear; /* Movimiento suave del progreso */
+  stroke-linecap: round;
+}
+
+.iconWrapper {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.labelContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.audioLabel {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.timeIndicator {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}

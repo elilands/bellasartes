@@ -1,0 +1,23 @@
+.textContainer {
+  display: block;
+}
+
+.wordWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25em; /* Espaciado entre palabras dinámico */
+}
+
+.wordMask {
+  display: inline-block;
+  overflow: hidden;
+  padding-bottom: 0.1em; /* Evita cortar letras que bajan como la 'g' o 'p' */
+  vertical-align: bottom;
+}
+
+.word {
+  display: inline-block;
+  transform-origin: bottom left;
+  will-change: transform;
+}
