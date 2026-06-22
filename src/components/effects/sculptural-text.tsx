@@ -10,11 +10,11 @@ interface SculpturalTextProps {
   delay?: number;
 }
 
-export function SculpturalText({ 
-  text, 
-  as: Component = "h1", 
+export function SculpturalText({
+  text,
+  as: Component = "h1",
   className = "",
-  delay = 0 
+  delay = 0,
 }: SculpturalTextProps) {
   const words = text.split(" ");
 
@@ -31,13 +31,13 @@ export function SculpturalText({
 
   const wordVariant = {
     hidden: { y: "120%", rotate: 2 },
-    visible: { 
-      y: "0%", 
+    visible: {
+      y: "0%",
       rotate: 0,
-      transition: { 
-        duration: 1, 
-        ease: [0.16, 1, 0.3, 1] /* Curva escultórica y pesada */
-      } 
+      transition: {
+        duration: 1,
+        ease: [0.16, 1, 0.3, 1] as const,
+      },
     },
   };
 
