@@ -1,46 +1,63 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import styles from "./marble-surface.module.css";
+import { motion } from "framer-motion";
+import styles from "./sculptural-text.module.css";
 
-export function MarbleSurface() {
-  const { scrollYProgress } = useScroll();
-  
-  // Transformamos el scroll en el movimiento de una luz virtual (eje Y)
-  const lightPosition = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-  // Hacemos que la luz se vuelva ligeramente más intensa al bajar
-  const lightOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.3, 0.6, 0.4]);
+interface SculpturalTextProps {
+  text: string;
+  as?: "h1" | "h2" | "h3" | "span";
+  className?: string;
+  delay?: number;
+}
+
+export function SculpturalText({
+  text,
+  as: Component = "h1",
+  className = "",
+  delay = 0,
+}: SculpturalTextProps) {
+  const words = text.split(" ");
+
+  const containerVariant = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.12,
+        delayChildren: delay,
+      },
+    },
+  };
+
+  const wordVariant = {
+    hidden: { y: "120%", rotate: 2 },
+    visible: {
+      y: "0%",
+      rotate: 0,
+      transition: {
+        duration: 1,
+        ease: [0.16, 1, 0.3, 1] as const,
+      },
+    },
+  };
 
   return (
-    <div className={styles.surfaceContainer} aria-hidden="true">
-      {/* Filtro de ruido estático por hardware (textura de mármol/piedra) */}
-      <svg className={styles.noiseFilter}>
-        <filter id="noise">
-          <feTurbulence 
-            type="fractalNoise" 
-            baseFrequency="0.8" 
-            numOctaves="4" 
-            stitchTiles="stitch" 
-          />
-          <feColorMatrix type="matrix" values="
-            1 0 0 0 0,
-            0 1 0 0 0,
-            0 0 1 0 0,
-            0 0 0 0.03 0
-          " />
-        </filter>
-        <rect width="100%" height="100%" filter="url(#noise)" />
-      </svg>
-
-      {/* Luz ambiental dinámica atada al scroll */}
-      <motion.div 
-        className={styles.ambientLight}
-        style={{ 
-          top: lightPosition,
-          opacity: lightOpacity
-        }}
-      />
-    </div>
+    <Component className={`${styles.textContainer} ${className}`}>
+      <motion.span
+        variants={containerVariant}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-10%" }}
+        className={styles.wordWrapper}
+      >
+        {words.map((word, index) => (
+          <span key={index} className={styles.wordMask}>
+            <motion.span variants={wordVariant} className={styles.word}>
+              {word}
+            </motion.span>
+          </span>
+        ))}
+      </motion.span>
+    </Component>
   );
 }
